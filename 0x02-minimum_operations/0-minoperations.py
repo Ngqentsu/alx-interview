@@ -3,6 +3,7 @@
    needed to result in exactly n H characters in the file.
 """
 
+
 def minOperations(n):
     """A function that calculates the number of operation."""
     if n <= 1:
@@ -14,8 +15,8 @@ def minOperations(n):
         while n % x == 0:
             ops += x
             n //= x
-        
+
         if n == 1:
             break
-    
+
     return ops
