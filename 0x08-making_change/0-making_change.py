@@ -9,13 +9,13 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    dynamic = [float('inf')] * (total + 1)
-    dynamic[0] = 0
+    dp = [float('inf')] * (total + 1)
+    dp[0] = 0
 
     for amount in range(1, total + 1):
         for coin in coins:
             if coin <= amount:
-                dynamic[amount] = min(dynamic[amount],
-                                      dynamic[amount - coin] + 1)
+                dp[amount] = min(dp[amount],
+                                      dp[amount - coin] + 1)
 
-    return dynamic[total] if dynamic[total] != float('inf') else -1
+    return dp[total] if dp[total] != float('inf') else -1
